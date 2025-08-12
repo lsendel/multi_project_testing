@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useContextStore } from '../../stores/contextStore';
 import { useTreeStore } from '../../stores/treeStore';
+import AIAssistant from '../AI/AIAssistant';
 
 export default function ContextPanel() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -293,6 +294,17 @@ export default function ContextPanel() {
           </div>
         );
 
+      case 'ai':
+        const selectedDocuments = Array.from(includedNodes)
+          .map(nodeId => getNodeById(nodeId))
+          .filter(node => node !== undefined);
+        
+        return (
+          <div className="space-y-4">
+            <AIAssistant selectedDocuments={selectedDocuments} />
+          </div>
+        );
+
       default:
         return null;
     }
@@ -385,6 +397,7 @@ export default function ContextPanel() {
           { key: 'pinned', label: 'Pinned', count: pinnedNodes.size },
           { key: 'excluded', label: 'Excluded', count: excludedNodes.size },
           { key: 'suggestions', label: 'Suggestions', count: suggestions.length },
+          { key: 'ai', label: 'AI', count: null },
         ].map(({ key, label, count }) => (
           <button
             key={key}
@@ -396,7 +409,7 @@ export default function ContextPanel() {
             }`}
           >
             {label}
-            {count > 0 && (
+            {count !== null && count > 0 && (
               <span className="ml-1 px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 text-xs rounded-full">
                 {count}
               </span>

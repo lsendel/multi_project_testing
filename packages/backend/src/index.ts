@@ -9,6 +9,7 @@ import searchRouter from './routes/search.js';
 import contextRouter from './routes/context.js';
 import collectionsRouter from './routes/collections.js';
 import analyticsRouter from './routes/analytics.js';
+import aiRouter from './routes/ai.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -64,6 +65,7 @@ app.use('/api/search', searchRouter);
 app.use('/api/context', contextRouter);
 app.use('/api/collections', collectionsRouter);
 app.use('/api/analytics', analyticsRouter);
+app.use('/api/ai', aiRouter);
 
 // Export/Import endpoints
 app.post('/api/export', async (req, res) => {

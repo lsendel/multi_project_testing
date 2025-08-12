@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import TreeViewPage from './pages/TreeViewPage';
 import SearchPage from './pages/SearchPage';
 import AnalyticsPage from './pages/AnalyticsPage';
+import AIPage from './pages/AIPage';
 import SettingsPage from './pages/SettingsPage';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="tree" element={<TreeViewPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
+          <Route path="ai" element={<AIPage />} />
           <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>
