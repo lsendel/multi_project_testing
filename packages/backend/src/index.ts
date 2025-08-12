@@ -6,6 +6,9 @@ import { DatabaseService } from './services/DatabaseService.js';
 // Import route handlers
 import documentsRouter from './routes/documents.js';
 import searchRouter from './routes/search.js';
+import contextRouter from './routes/context.js';
+import collectionsRouter from './routes/collections.js';
+import analyticsRouter from './routes/analytics.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -58,6 +61,9 @@ app.get('/api/health', async (req, res) => {
 // API routes
 app.use('/api/documents', documentsRouter);
 app.use('/api/search', searchRouter);
+app.use('/api/context', contextRouter);
+app.use('/api/collections', collectionsRouter);
+app.use('/api/analytics', analyticsRouter);
 
 // Export/Import endpoints
 app.post('/api/export', async (req, res) => {
