@@ -3,6 +3,8 @@ import Layout from './components/Layout/Layout';
 import HomePage from './pages/HomePage';
 import TreeViewPage from './pages/TreeViewPage';
 import SearchPage from './pages/SearchPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+import SettingsPage from './pages/SettingsPage';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="tree" element={<TreeViewPage />} />
           <Route path="search" element={<SearchPage />} />
+          <Route path="analytics" element={<AnalyticsPage />} />
+          <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>
     </div>
